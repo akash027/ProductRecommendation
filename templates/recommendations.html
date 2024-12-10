@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Product Details</h2>
+<div>
+    <img src="{{ product['img_link'] }}" alt="Product Image" style="max-width:200px;">
+    <p>Product ID: {{ product['product_id'] }}</p>
+    <p>Product Name: {{ product['product_name'] }}</p>
+    <p>Category: {{ product['category'] }}</p>
+    <p>Rating: {{ product['rating'] }} ({{ product['rating_count'] }})</p>
+    <a href="{{ product['product_link'] }}" target="_blank">View Product</a>
+</div>
+
+<h2>Recommendations</h2>
+<div>
+    {% for recommendation in recommendations %}
+        <div style="margin-bottom:20px;">
+            <img src="{{ recommendation['img_link'] }}" alt="Recommended Product Image" style="max-width:200px;">
+            <p>Product ID: {{ recommendation['product_id'] }}</p>
+            <p>Product Name: {{ recommendation['product_name'] }}</p>
+            <p>Category: {{ recommendation['category'] }}</p>
+            <p>Rating: {{ recommendation['rating'] }} ({{ recommendation['rating_count'] }})</p>
+            <a href="{{ recommendation['product_link'] }}" target="_blank">View Product</a>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
